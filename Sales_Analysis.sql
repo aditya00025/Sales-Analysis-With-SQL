@@ -32,6 +32,14 @@ SELECT * FROM superstore;
 -- Count the total number of rows in the superstore table
 SELECT COUNT(*) FROM superstore;
 
+--Extracting month from order_date
+
+SELECT order_date,
+EXTRACT(MONTH FROM order_date) AS month
+FROM superstore
+LIMIT 10;
+
+
 -- Count the number of rows where sales is NULL
 -- (Currently there are no NULL values, but this is an example of how to handle them)
 SELECT COUNT(*) FROM superstore WHERE sales IS NULL;
@@ -44,6 +52,14 @@ WHERE sales IS NULL;
 
 --Aggregation:
 
+-- Grouping data by year and month
+SELECT 
+    EXTRACT(YEAR FROM order_date) AS year,
+    EXTRACT(MONTH FROM order_date) AS month,
+    COUNT(*) AS order_count
+FROM superstore
+GROUP BY year, month;
+
 -- Calculate total sales by region, ordered by total sales in descending order
 SELECT region, SUM(sales) AS total_sales
 FROM superstore
@@ -55,6 +71,10 @@ SELECT state, SUM(sales) AS total_sales
 FROM public.superstore
 GROUP BY state
 ORDER BY total_sales DESC LIMIT 10;
+
+-- Counting distinct orders (order volume)
+SELECT COUNT(DISTINCT order_id) AS total_orders
+FROM superstore;
 
 -- Calculate the average sales across the entire superstore dataset
 SELECT AVG(sales) AS avg_sales
@@ -100,12 +120,9 @@ ORDER BY highest_sales DESC LIMIT 5;
 
 -- Time-based Analysis:
 
--- Calculate total sales per year, ordered by year
-SELECT EXTRACT(YEAR FROM order_date) AS year, SUM(sales) AS total_sales
-FROM superstore
-GROUP BY year
-ORDER BY year;
-
+-- Filtering orders by date
+SELECT * FROM superstore WHERE 
+order_date BETWEEN '2015-04-18' AND '2017-11-09';
 
 
 -- Window Functions:
