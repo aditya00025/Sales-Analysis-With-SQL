@@ -1,104 +1,42 @@
-Superstore Sales Analysis (SQL)
-This project performs SQL operations on a superstore dataset using PostgreSQL.
+# Superstore Sales Analysis using SQL
 
+This project analyzes Superstore sales data using SQL.  
 It covers basic operations, aggregations, time-based analysis, and window functions.
 
-Table Schema
-The superstore table includes:
+## SQL Operations Performed
 
-row_id (INT)
+### 1. Basic Operations
+- Select all data
+- Count total number of rows
+- Extract month from `order_date`
+- Handle NULL values in `sales`
 
-order_id (TEXT)
+### 2. Aggregations
+- Group sales data by year and month
+- Calculate total sales by region and state
+- Find top 10 states by total sales
+- Count distinct orders
+- Calculate average sales and profit
+- Summarize quantity, sales, and profit by category
+- Find top products by sales and profit
+- Count orders by customer segment
+- Find highest and lowest sales per product
 
-order_date (DATE)
+### 3. Time-based Analysis
+- Filter orders between specific dates
 
-ship_date (DATE)
+### 4. Window Functions
+- Rank products within categories based on sales
+- Find top 5 products in each category
+- Calculate min and max sales within each category
 
-ship_mode (TEXT)
+## Tools Used
 
-customer_id (TEXT)
+- PostgreSQL
+- SQL (Aggregation, Date Functions, Window Functions)
 
-customer_name (TEXT)
+## How to Run
 
-segment (TEXT)
-
-country (TEXT)
-
-city (TEXT)
-
-state (TEXT)
-
-postal_code (INT)
-
-region (TEXT)
-
-product_id (TEXT)
-
-category (TEXT)
-
-sub_category (TEXT)
-
-product_name (TEXT)
-
-sales (NUMERIC)
-
-quantity (INT)
-
-discount (NUMERIC)
-
-profit (NUMERIC)
-
-Operations Performed
-Basic Queries
-
-Select all records
-
-Count total rows
-
-Extract month from order_date
-
-Handle NULL values in sales
-
-Aggregations
-
-Group by year and month
-
-Total sales by region and state
-
-Top states based on sales
-
-Distinct order count
-
-Average sales and profit
-
-Total quantity, sales, and profit by category
-
-Top products by sales and profit
-
-Orders by customer segment
-
-Highest and lowest sales per product
-
-Time-based Analysis
-
-Filter orders within a specific date range
-
-Window Functions
-
-Rank products within each category by sales
-
-Top 5 products from each category
-
-Minimum and maximum sales within each category
-
-Tools Used
-PostgreSQL
-
-SQL (Aggregation, Window functions, Date functions)
-
-How to Use
-Create the superstore table.
-
-Insert the dataset.
-
-Run the SQL scripts provided to perform the analysis.
+1. Create the `superstore` table in PostgreSQL.
+2. Load your data into the table.
+3. Run the provided SQL queries step-by-step.
